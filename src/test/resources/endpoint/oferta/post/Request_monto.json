@@ -1,0 +1,17 @@
+{
+  "page": "1",
+  "model": {
+    "pensionado": {
+      "sexo": "1",
+      "fechaNacimiento": "1939-07-27",
+      "entidadFederativa": {
+        "cveEntidadFederativa": "09"
+      }
+    },
+    "monto": "11000",
+    "descuentoMensual": "0",
+    "capacidadCredito": "10",
+    "plazo": "5",
+    "tipoSimulacion": "1"
+  }
+}

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteRetencionPorDelegacion" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7de6a425-daad-4fb0-8d95-b1feb07d0b51">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="630"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="DatasetEntidades" uuid="215fce96-befa-4e9c-931b-4d0fd87b2102">
+		<parameter name="PORCENTAJE_ADMIN" class="java.lang.Double">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+		</parameter>
+		<parameter name="PORCENTAJE_IVA" class="java.lang.Double"/>
+		<parameter name="RECUPERACION_FALLECIDOS" class="java.lang.Double"/>
+		<parameter name="SUMA_NETO_PAGAR_DT" class="java.lang.Double"/>
+		<parameter name="COSTO_ADMINISTRATIVO_DT" class="java.lang.Double"/>
+		<parameter name="IVA_COSTO_DT" class="java.lang.Double"/>
+		<parameter name="NETO_PAGAR_DT" class="java.lang.Double"/>
+		<queryString language="SQL">
+			<![CDATA[]]>
+		</queryString>
+		<field name="numeroDelegacion" class="java.lang.String"/>
+		<field name="delegacion" class="java.lang.String"/>
+		<field name="total" class="java.lang.Integer"/>
+		<field name="netoPagar" class="java.lang.Double"/>
+		<field name="numeroProveedor" class="java.lang.Integer"/>
+		<field name="nombreComercial" class="java.lang.String"/>
+		<variable name="SUMA_TOTAL" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{total}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="MES_ANIO" class="java.lang.String"/>
+	<parameter name="ENTIDAD_FINANCIERA" class="java.lang.String"/>
+	<parameter name="NUMERO_PROVEEDOR" class="java.lang.Integer"/>
+	<parameter name="ENTIDADES_DATA_SOURCE" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="PORCENTAJE_COSTO_ADMIN" class="java.lang.Double"/>
+	<parameter name="PORCENTAJE_IVA" class="java.lang.Double"/>
+	<parameter name="RECUPERACION_FALLECIDOS" class="java.lang.Double"/>
+	<parameter name="SUMA_NETO_PAGAR" class="java.lang.Double"/>
+	<parameter name="COSTO_ADMINISTRATIVO" class="java.lang.Double"/>
+	<parameter name="IVA_COSTO" class="java.lang.Double"/>
+	<parameter name="NETO_PAGAR" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="330" height="15" uuid="3dfb3110-9473-43b0-97fa-1a749f35d01d"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RETENCIONES CORRESPONDIENTES AL MES DE "+$P{MES_ANIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="15" width="105" height="15" uuid="b5868bde-8f66-460b-81b5-7b37e2c45049"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[ENTIDAD FINANCIERA ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="65" height="15" uuid="d9151514-ede0-4094-ad5d-c7ad090b59bc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[PROVEEDOR ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="45" width="109" height="15" uuid="76668c1a-c472-4ac4-b4b0-93f5533f8fa5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NUMERO_PROVEEDOR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="188" y="45" width="118" height="15" uuid="b466774d-e30f-480f-a5cb-2ffbd98ee297"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[CONCEPTOS 301 Y 380]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="45" width="149" height="15" uuid="f7d26594-4fe0-4ea1-b1c0-0a9663dc20de"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[CUENTA PREI:  21069017]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="381" y="30" width="161" height="15" uuid="1372778b-7781-40fe-9566-ac36e955f9a5"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new StringBuilder(new SimpleDateFormat("dd MMMMM yyyy", new Locale("es", "ES")).format(new java.util.Date()).toUpperCase())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="15" width="437" height="15" uuid="5300bae4-d0e8-46ce-9a41-6fa63f30b3e9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["\""+$P{ENTIDAD_FINANCIERA}+"\""]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" x="0" y="0" width="555" height="15" uuid="e9add9db-089f-4f9d-b116-991ccb7c3bf0"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DatasetEntidades" uuid="257d3af2-8d3e-49b2-9bdd-0ea055dd29d0">
+						<datasetParameter name="PORCENTAJE_ADMIN">
+							<datasetParameterExpression><![CDATA[$P{PORCENTAJE_COSTO_ADMIN}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="PORCENTAJE_IVA">
+							<datasetParameterExpression><![CDATA[$P{PORCENTAJE_IVA}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="RECUPERACION_FALLECIDOS">
+							<datasetParameterExpression><![CDATA[$P{RECUPERACION_FALLECIDOS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="SUMA_NETO_PAGAR_DT">
+							<datasetParameterExpression><![CDATA[$P{SUMA_NETO_PAGAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="COSTO_ADMINISTRATIVO_DT">
+							<datasetParameterExpression><![CDATA[$P{COSTO_ADMINISTRATIVO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="IVA_COSTO_DT">
+							<datasetParameterExpression><![CDATA[$P{IVA_COSTO}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="NETO_PAGAR_DT">
+							<datasetParameterExpression><![CDATA[$P{NETO_PAGAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[$P{ENTIDADES_DATA_SOURCE}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="300" uuid="3ed96a4d-358e-4540-ab7b-5bbe14bc3096">
+						<jr:columnHeader height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="300" height="15" backcolor="#CCCCCC" uuid="fcb87274-7638-4eac-baa2-85ce91145f2a"/>
+								<textElement verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[ DELEGACIÓN]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="109" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="300" height="15" uuid="3cdea446-16fa-4d92-88e7-882dcb274e98"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[TOTAL NACIONAL]]></text>
+							</staticText>
+							<staticText>
+								<reportElement x="5" y="17" width="130" height="14" uuid="8fad151b-6813-4a97-825c-d018da5e62c6"/>
+								<textElement verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[Cuenta Contable 41040417]]></text>
+							</staticText>
+							<staticText>
+								<reportElement x="5" y="32" width="130" height="14" uuid="b206bed7-1c9f-40c5-a654-dafbc07e4eab"/>
+								<textElement verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[Cuenta Contable 21040129]]></text>
+							</staticText>
+							<staticText>
+								<reportElement x="5" y="47" width="130" height="14" uuid="4dffc3ed-455d-4ac8-b3d6-3dec8f12c4a8"/>
+								<textElement verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[Cuenta Contable 21100101]]></text>
+							</staticText>
+							<staticText>
+								<reportElement x="144" y="62" width="153" height="14" uuid="83bf397f-9875-4193-9ce1-bf6b7ef1101a"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[Neto a Pagar]]></text>
+							</staticText>
+							<staticText>
+								<reportElement x="144" y="32" width="153" height="14" uuid="f0fd932e-dd27-44f8-a2b6-f759debeae1a"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[ I.V.A]]></text>
+							</staticText>
+							<staticText>
+								<reportElement x="144" y="47" width="153" height="14" uuid="373beb89-20e8-45c1-96ce-01da0ea164c4"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[Recuperación Fallecidos]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="144" y="17" width="153" height="14" uuid="d6e3d98b-5676-4622-adb0-971036b546f5"/>
+								<textElement textAlignment="Right">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Costo administrativo "+new Double($P{PORCENTAJE_ADMIN}* 100 )+"%"]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.0"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.0"/>
+								<rightPen lineWidth="0.0"/>
+							</box>
+							<textField>
+								<reportElement x="0" y="0" width="50" height="15" uuid="e6f3e409-467e-47d0-91a5-84d9b7b08b03"/>
+								<textElement verticalAlignment="Middle">
+									<font size="9"/>
+									<paragraph leftIndent="1"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{numeroDelegacion}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="50" y="0" width="250" height="15" uuid="7fabc478-e3c1-4d91-b259-fcf5698cc21e"/>
+								<textElement verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{delegacion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="255db441-7d8c-497a-9f14-9d7053a5d279">
+						<jr:columnHeader height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="110" height="15" backcolor="#CCCCCC" uuid="00b4f292-285a-4a88-9148-aa9144fb1d4e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="109" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="15" uuid="b01c3188-0e8c-4d0f-82d1-6529d4c8d2f8"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{SUMA_TOTAL}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="0" y="62" width="110" height="14" uuid="6d5fe258-0f74-430b-9406-1f59303e8abb"/>
+								<box>
+									<bottomPen lineWidth="0.75" lineStyle="Solid"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[(e=a-b-c-d)]]></text>
+							</staticText>
+							<staticText>
+								<reportElement x="0" y="47" width="110" height="14" uuid="16947bd5-552b-40cf-aaa2-83e6941d2b08"/>
+								<box bottomPadding="0">
+									<bottomPen lineWidth="0.75" lineStyle="Solid"/>
+								</box>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[(d)]]></text>
+							</staticText>
+							<textField>
+								<reportElement x="0" y="17" width="110" height="14" uuid="fc130f13-b6a5-45d0-8360-82d392ddda14"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA["(b=a*"+new Double($P{PORCENTAJE_ADMIN}* 100 )+"%)"]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="32" width="110" height="14" uuid="7ae654b1-cfa3-4f5e-944d-3dc8b4fe3cf9"/>
+								<textElement>
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA["(c=b*"+new Double($P{PORCENTAJE_IVA})+"%)"]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell height="15" rowSpan="1">
+							<box>
+								<leftPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<textField>
+								<reportElement x="0" y="0" width="110" height="15" uuid="e6d49ef2-aa49-479b-8938-1b75604e88e6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="150" uuid="d2aec0c0-c5cc-4de0-8f04-4c557d4783f7">
+						<jr:columnHeader height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="150" height="15" backcolor="#CCCCCC" uuid="3ffac515-a925-4f47-88ec-7ce793fd80aa"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="9"/>
+								</textElement>
+								<text><![CDATA[NETO A PAGAR]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="109" rowSpan="1">
+							<textField pattern="¤ #,##0.00">
+								<reportElement x="0" y="47" width="150" height="14" uuid="8db827d4-20bd-4119-bfdb-4732c4c0d9c6"/>
+								<box>
+									<bottomPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<paragraph rightIndent="1"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$P{RECUPERACION_FALLECIDOS}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="0" width="36" height="15" uuid="6aaf04f7-afcc-4deb-9e70-ac827cffb106"/>
+								<box>
+									<topPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Right">
+									<paragraph rightIndent="1"/>
+								</textElement>
+								<textFieldExpression><![CDATA["(a)"]]></textFieldExpression>
+							</textField>
+							<textField pattern="¤ #,##0.00">
+								<reportElement x="36" y="0" width="114" height="15" uuid="eacefe71-fab9-4f2d-9c7e-e8b95c6a203c"/>
+								<box>
+									<topPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$P{SUMA_NETO_PAGAR_DT}]]></textFieldExpression>
+							</textField>
+							<textField pattern="¤ #,##0.00">
+								<reportElement x="0" y="18" width="150" height="13" uuid="9e3a7961-01bb-43e3-ab34-aceb8aa197f7"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$P{COSTO_ADMINISTRATIVO_DT}]]></textFieldExpression>
+							</textField>
+							<textField pattern="¤ #,##0.00">
+								<reportElement x="0" y="32" width="150" height="14" uuid="4cf47038-19c5-4292-9c96-149851865843"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$P{IVA_COSTO_DT}]]></textFieldExpression>
+							</textField>
+							<textField pattern="¤ #,##0.00">
+								<reportElement x="0" y="62" width="150" height="14" uuid="3d7cf4fa-63ab-4458-872b-1ad0d07ee416"/>
+								<box>
+									<bottomPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$P{NETO_PAGAR_DT}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell height="15" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.0"/>
+								<leftPen lineWidth="0.0"/>
+								<bottomPen lineWidth="0.0"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<textField pattern="¤ #,##0.00">
+								<reportElement x="0" y="0" width="150" height="15" uuid="f38609e0-d205-416c-8464-ef9fdd1fff1f"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font size="9"/>
+									<paragraph rightIndent="1"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{netoPagar}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

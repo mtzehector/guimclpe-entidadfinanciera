@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "numPlazo": 6,
+        "descripcion": "6 meses"
+    },
+    {
+        "id": 2,
+        "numPlazo": 9,
+        "descripcion": "9 meses"
+    },
+    {
+        "id": 3,
+        "numPlazo": 12,
+        "descripcion": "12 meses"
+    },
+    {
+        "id": 4,
+        "numPlazo": 18,
+        "descripcion": "18 meses"
+    },
+    {
+        "id": 6,
+        "numPlazo": 30,
+        "descripcion": "30 meses"
+    }
+]
