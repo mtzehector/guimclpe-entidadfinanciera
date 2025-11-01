@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CartaRecibo" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d966afdd-3e11-401e-8a34-a1729fe1d8c2">
+	<property name="ireport.zoom" value="3.897434200000005"/>
+	<property name="ireport.x" value="404"/>
+	<property name="ireport.y" value="1770"/>
+	<parameter name="ENTIDADFINANCIERA" class="java.lang.String">
+		<defaultValueExpression><![CDATA["SERVICIOS ADMINISTRATIVOS PILGRIMS PRIDE, S. DE R.L. DE C.V."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PERIODO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["202311"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PROVEEDOR" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[900]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RFC" class="java.lang.String">
+		<defaultValueExpression><![CDATA["XXX"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MONTO" class="java.lang.Double">
+		<defaultValueExpression><![CDATA[222567085.99]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MONTOLETRA" class="java.lang.String">
+		<defaultValueExpression><![CDATA["DOSCIENTOS VEINTIDOS MILLONES QUINIENTOS SESENTA Y SIETE MIL OCHENTA Y CINCO PESOS 99/100 M.N."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MES" class="java.lang.String">
+		<defaultValueExpression><![CDATA["PERRO"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ANIO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[2023]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMPORTEPRIMAS" class="java.lang.Double">
+		<defaultValueExpression><![CDATA[227104194.86]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMPORTECOSTOSADMINISTRACION" class="java.lang.Double">
+		<defaultValueExpression><![CDATA[227104194.81]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMPORTEIVA" class="java.lang.Double">
+		<defaultValueExpression><![CDATA[227104194.82]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMPORTEACCESOITINERANTE" class="java.lang.Double">
+		<defaultValueExpression><![CDATA[227104194.83]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMPORTEIVAITERANTE" class="java.lang.Double">
+		<defaultValueExpression><![CDATA[227104194.84]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMPORTEPAGADODEMASIA" class="java.lang.Double">
+		<defaultValueExpression><![CDATA[227104194.85]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FIRMAOPERADOREF" class="java.lang.String"/>
+	<parameter name="PORCENTAJEADMINISTRACION" class="java.lang.Double"/>
+	<parameter name="PORCENTAJEITINERANTE" class="java.lang.Double"/>
+	<parameter name="IVA" class="java.lang.Double"/>
+	<parameter name="NOMBRECOMERCIAL" class="java.lang.String"/>
+	<parameter name="REPRESENTANTE" class="java.lang.String"/>
+	<parameter name="FIRMAADMINISTRADOREF" class="java.lang.String"/>
+	<parameter name="FIRMATITULAR" class="java.lang.String"/>
+	<parameter name="OPERADOREF" class="java.lang.String"/>
+	<parameter name="TITULARIMSS" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="31" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="571" height="20" uuid="21dade4b-10d3-476b-8809-629b4ca227c8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ciudad de México, a "+ new SimpleDateFormat("dd 'de' MMMMM 'de' yyyy", new Locale("es","MX")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="10" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="711" splitType="Stretch">
+			<textField>
+				<reportElement x="404" y="31" width="167" height="15" uuid="c4c33ea2-b825-492a-8d14-a82f278d144b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="styled">
+					<font fontName="Montserrat" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RFC: <b>" + $P{RFC}+ "</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="128" width="572" height="125" uuid="c559cc4f-8890-4219-bfc8-d87223d8bb71"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Montserrat" size="9" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["De conformidad con los artículos 118 y Vigésimo Noveno Transitorio de la Ley del Seguro Social vigente y en el marco del Convenio de Colaboración, recibimos del Instituto Mexicano del Seguro Social el importe de "+ "<b>" + new java.text.DecimalFormat("$ #,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($P{MONTO}) +" ("+ $P{MONTOLETRA} + ")"+ "</b>" +" por concepto de retenciones de " + "<b>" + "\"Préstamos a cuenta de pensión\""+ "</b>" + " efectuadas a la población pensionada al amparo de la Ley del Seguro Social vigente hasta el 30 de junio de 1997 (LSS 1973). Lo anterior, corresponde a " + "<b>" + $P{MES} +" de "+ $P{ANIO} + "</b>"+" y contempla los conceptos de Costo de Administración, Impuesto al Valor Agregado (IVA) del costo de administración y la recuperación por fallecimiento de la población pensionada, como se muestra a continuación:"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="83" y="253" width="267" height="15" backcolor="#005C4C" uuid="5a1b25f1-c079-4d2a-9274-0bae904f8f81"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="350" y="253" width="122" height="15" backcolor="#005C4C" uuid="67c34dec-90d1-44c8-be4c-1286722ef35d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="83" y="268" width="267" height="15" uuid="9540af62-1ea9-400f-a736-a95339c9605b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="350" y="268" width="122" height="15" uuid="ca8a3875-3164-47b9-9e77-f51dc584dc5a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="83" y="283" width="267" height="15" uuid="b094e3a8-862b-4131-aa01-2f8584f3fa90"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="350" y="283" width="122" height="15" uuid="a0237f40-fbc5-4ee5-aad6-cf774ae4f287"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="350" y="298" width="122" height="15" uuid="06a29da4-a11a-4aaf-996c-3dc327d63457"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="83" y="298" width="267" height="15" uuid="ba284e7a-0d1b-4ed4-97db-7e9aee43c75d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="350" y="328" width="122" height="15" forecolor="#FFFFFF" backcolor="#404040" uuid="cde04dc4-b484-4bcc-9f8b-89981349aceb"/>
+				<graphicElement>
+					<pen lineStyle="Solid" lineColor="#000000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="83" y="328" width="267" height="15" forecolor="#FFFFFF" backcolor="#404040" uuid="1cd4b3f7-2ec1-42ee-84ad-7a0b7e9974db"/>
+				<graphicElement>
+					<pen lineColor="#000000"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="83" y="269" width="255" height="15" uuid="56e119cb-caf8-4ecd-aea0-f18599d8a15e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[a) Total de retenciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="253" width="267" height="15" forecolor="#FFFFFF" backcolor="#005C4C" uuid="54f8abf0-a345-4cd8-8fbd-605a7401a543"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<text><![CDATA[Concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="328" width="255" height="15" forecolor="#FFFFFF" backcolor="#404040" uuid="3a68bfe4-3fc2-4f5a-a3ac-397bd135c523"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Neto a pagar (a-b-c-d):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="373" width="572" height="17" uuid="a42d5d8a-fc97-4979-9980-c8f77fd9e0d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma Digital]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="99" width="183" height="19" isRemoveLineWhenBlank="true" uuid="45849d2c-8d5f-4408-8e2a-18a29a560c6d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CARTA RECIBO]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="404" y="-6" width="167" height="19" uuid="2268df69-47d7-4093-8224-33cb9d74385d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["No. "+ $P{PERIODO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="18" width="167" height="15" uuid="f8e0ec94-a07a-4b4e-a02d-46c4754536f9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="styled">
+					<font fontName="Montserrat" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Proveedor: <b> "+ $P{PROVEEDOR}+ "</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="53" width="350" height="12" uuid="6e56bc8b-69d8-4e8e-8e68-6774c0c0a320"/>
+				<textElement>
+					<font fontName="Montserrat" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ing. María Laura Josefina Gutiérrez Vera"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="64" width="350" height="12" uuid="6bdf1f4f-e66a-40f5-902f-280dc75f67d6"/>
+				<textElement>
+					<font fontName="Montserrat" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Titular de la División de Pensiones"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="75" width="350" height="12" uuid="5b8fb6a3-ae05-4894-8896-9924e0f71fcc"/>
+				<textElement>
+					<font fontName="Montserrat" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Coordinación de Prestaciones Económicas"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="86" width="350" height="12" uuid="ae05096b-9ab6-44ed-837d-629ef4a94089"/>
+				<textElement>
+					<font fontName="Montserrat" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Presente"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="350" y="313" width="122" height="15" uuid="21f5368c-2828-4a43-9641-46a84c096acf"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="83" y="313" width="267" height="15" uuid="52038141-42a1-4516-9cb7-376e9abf9ca6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="83" y="313" width="255" height="15" uuid="546ff6ac-b97f-4d35-ae2b-f979f4fc367e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[d) Importe recuperado por fallecimientos  ]]></text>
+			</staticText>
+			<textField pattern="$ #,##0.00">
+				<reportElement x="350" y="268" width="122" height="15" uuid="16b750f6-222c-49ce-98f6-080db53f629e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+					<paragraph rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("$ #,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($P{IMPORTEPRIMAS})]]></textFieldExpression>
+			</textField>
+			<textField pattern="$ #,##0.00">
+				<reportElement x="350" y="283" width="122" height="15" uuid="639d650a-b771-43bd-aa9a-aca5d3567e0b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+					<paragraph rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("$ #,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($P{IMPORTECOSTOSADMINISTRACION})]]></textFieldExpression>
+			</textField>
+			<textField pattern="$ #,##0.00" isBlankWhenNull="false">
+				<reportElement x="350" y="298" width="122" height="15" uuid="217d3f32-83e1-4c71-95b2-e29048c123be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+					<paragraph rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("$ #,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($P{IMPORTEIVA})]]></textFieldExpression>
+			</textField>
+			<textField pattern="$ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="350" y="313" width="122" height="15" uuid="5f2c3cab-4abf-4b8b-91e2-5bd700a563c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+					<paragraph rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("$ #,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($P{IMPORTEPAGADODEMASIA})]]></textFieldExpression>
+			</textField>
+			<textField pattern="$ #,##0.00" isBlankWhenNull="false">
+				<reportElement x="350" y="328" width="122" height="15" forecolor="#FFFFFF" backcolor="#404040" uuid="7a56cf82-bc22-4edb-a9e8-e194d9c69b8b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("$ #,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($P{MONTO})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="392" width="270" height="88" uuid="ab5d1d39-960f-42c0-8bb4-88cc1af15602"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Montserrat" size="8"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FIRMAADMINISTRADOREF}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="83" y="283" width="255" height="15" uuid="7865e0e4-ca66-4ac3-b15f-370b7642272a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["b) Costo de Administración"]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="83" y="298" width="255" height="15" uuid="52e23cf7-4fe5-4f0c-bf49-946911cd4e20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["c) I.V.A. del costo de administración ("+new Double($P{IVA}* 100 )+"%)"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="351" y="253" width="121" height="15" forecolor="#FFFFFF" backcolor="#005C4C" uuid="a77423e8-9c7f-4038-a558-1985baa2d557"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="353" width="572" height="20" uuid="600979bb-87ba-4d36-8c07-549012147f7a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atentamente,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="649" width="270" height="21" uuid="c1e7e1b9-a010-462b-91fd-59446a071bdc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Titular de la División de Pensiones
+Coordinación de Prestaciones Económicas.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="669" width="270" height="34" uuid="fd2ad04c-cd95-49b7-b0be-f0f409b9238a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Lo anterior, con fundamento en los artículos 2 fracción V, 3 fracción II inciso f), 81 fracción I del Reglamento Interior del Instituto Mexicano del Seguro Social, en relación con lo señalado en el inciso 35 del numeral 7.1.1.1.3 del Manual de Organización de la Dirección de Prestaciones Económicas y Sociales.]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="0" y="483" width="270" height="15" uuid="5119ecd6-56f1-4969-97c2-e790b2bbfd56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REPRESENTANTE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="492" width="270" height="15" uuid="69bcfa3e-f221-4e42-8bb2-2682984e1150"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Representante Legal]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="501" width="270" height="15" uuid="38f82c80-36aa-448c-a8f7-b640ef8e1a20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ENTIDADFINANCIERA}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="511" width="270" height="15" uuid="02e051a7-25ad-407d-99e9-eb775cc15447"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBRECOMERCIAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="302" y="392" width="270" height="88" uuid="7d7a520b-20cc-49d1-8f6e-63d1295fed95"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Montserrat" size="8"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FIRMAOPERADOREF}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="154" y="546" width="270" height="88" uuid="fcaf0848-34b2-448d-92cf-22faab3bb505"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Montserrat" size="8"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FIRMATITULAR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="302" y="492" width="269" height="15" uuid="438a2726-09ee-45ee-8bae-78d9f2b9ce7d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Operador Entidad Financiera]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="302" y="483" width="269" height="15" uuid="b5a25a4d-7460-435c-9b0d-b6695e00e5ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OPERADOREF}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="302" y="511" width="269" height="15" uuid="dfefe142-7bf2-4300-8455-7c292bdb73a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBRECOMERCIAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="302" y="501" width="269" height="15" uuid="83d0e24b-01fe-43fc-8ba4-b93d0b0a9f67"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ENTIDADFINANCIERA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="154" y="638" width="270" height="15" uuid="27b1ffca-4dd7-4f4e-85d4-db2356802624"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TITULARIMSS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+</jasperReport>

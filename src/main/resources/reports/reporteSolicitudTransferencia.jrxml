@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteSolicitudTransferencia" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a2d98f9-23e5-4545-aaef-4c057f67faf7">
+	<property name="ireport.zoom" value="2.4793388429752063"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="810"/>
+	<subDataset name="DatasetTotales" uuid="21eccea9-52f5-4452-bf75-94bfa04fd273">
+		<field name="retencionNacional" class="java.lang.Double"/>
+		<field name="costoAdministrativo" class="java.lang.Double"/>
+		<field name="ivaCostoAdministrativo" class="java.lang.Double"/>
+		<field name="importeFallecidos" class="java.lang.Double"/>
+		<field name="netoPagar" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="NUMERO_ENTIDADES" class="java.lang.Integer"/>
+	<parameter name="NUMERO_ENTIDADES_LETRA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MES_ANIO" class="java.lang.String"/>
+	<parameter name="TOTALES_DATA_SOURCE" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="LEYENDA_EF" class="java.lang.String"/>
+	<parameter name="IMAGEN" class="java.io.InputStream" isForPrompting="false"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="34" splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="479" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="555" height="95" uuid="9d89292e-42fd-472d-a7a7-71b996109b37"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Montserrat" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hago referencia a la transferencia de recursos de las entidades financieras en Convenio con el Instituto Mexicano del Seguro Social (IMSS) por concepto de retenciones de préstamos a cuenta de pensión, otorgados a la población pensionada al amparo de la Ley del Seguro Social vigente hasta el 30 de junio de 1997 (LSS 1973). Lo anterior, en el marco del artículo Vigésimo Noveno Transitorio de la Ley del Seguro Social vigente (reformado en diciembre de 2020)."+"\n\n"+"En este sentido, le comunico a usted las cifras por dicho concepto correspondientes a la nómina de " + "<b>" + $P{MES_ANIO} + "</b>" + " de " + "<style isBold='true'>" + $P{NUMERO_ENTIDADES} + " (" + $P{NUMERO_ENTIDADES_LETRA} + ") " + $P{LEYENDA_EF} + "</style>" + ", a fin de solicitar la emisión y pronto pago de las cuentas por pagar de acuerdo con el Instructivo de Manejo de Cuenta y Norma de Pago (2022)."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="196" width="555" height="106" uuid="473b6322-7464-44d5-acb0-7bf8f088fb5d"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Montserrat" size="9"/>
+				</textElement>
+				<text><![CDATA[No omito mencionar, que la cuenta por pagar se emitirá descontando el concepto de “Recuperación Fallecidos” (C.C. 21100101) al concepto de “Retención Nacional” (C.C. 21069017). Ello, en virtud que la División de Contabilidad adscrita a la Coordinación de Contabilidad y Trámite de Erogaciones, es quien realizará la reclasificación para los efectos contables correspondientes.
+
+Lo anterior, se comunica con fundamento en los artículos 268 A de la Ley del Seguro Social, 2 fracción V, 3 fracción II inciso f), 81 fracciones I, XII y 84 del Reglamento Interior del Instituto Mexicano del Seguro Social, en relación con el punto 7.1.1.1 del Manual de Organización de la Dirección de Prestaciones Económicas y Sociales.
+
+Sin otro particular, reciba un cordial saludo.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="302" width="100" height="23" uuid="a2917cc1-e10e-46b8-a220-0b1af16ada44"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Montserrat" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atentamente,]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="0" y="95" width="555" height="101" uuid="4cb84780-c03a-405d-a68a-e985897182a7"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DatasetTotales" uuid="a02f5525-6f8a-49d8-825e-f6f256f6afe3">
+						<dataSourceExpression><![CDATA[$P{TOTALES_DATA_SOURCE}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="75" uuid="7c92f270-07c7-426f-a927-42d22ecafc58">
+						<jr:columnHeader height="30" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="75" height="15" forecolor="#FFFFFF" backcolor="#005C4C" uuid="13d71ff8-2f7a-4e6d-bf91-ea1e1be165ca"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Concepto]]></text>
+							</staticText>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="15" width="75" height="15" forecolor="#FFFFFF" backcolor="#B38E5D" uuid="1db951fd-4517-4248-bb66-bad0aa275645"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Formula]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="75" height="10" backcolor="#CCCCCC" uuid="96ed5c77-a461-4963-bebe-8a48879e124d"/>
+								<box>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="false"/>
+									<paragraph leftIndent="1"/>
+								</textElement>
+								<text><![CDATA[TOTAL GENERAL]]></text>
+							</staticText>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="20" width="75" height="15" backcolor="#CCCCCC" uuid="9c278518-c34a-4b55-9b75-04fbc8367ac8"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="false"/>
+									<paragraph leftIndent="1"/>
+								</textElement>
+								<text><![CDATA[Cuenta contable]]></text>
+							</staticText>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="9" width="75" height="11" backcolor="#CCCCCC" uuid="384d95d3-e72c-4449-a97a-ae1efac31389"/>
+								<box>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="false"/>
+									<paragraph leftIndent="1"/>
+								</textElement>
+								<text><![CDATA[-cifras en pesos-]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="106" uuid="8b1abcb1-d0ce-4d3b-9096-e7e56d7ac2a1">
+						<jr:columnHeader height="30" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="106" height="15" forecolor="#FFFFFF" backcolor="#005C4C" uuid="22393eb7-02f2-459e-8e5a-74d9c27db9f9"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Retención Nacional]]></text>
+							</staticText>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="15" width="106" height="15" forecolor="#FFFFFF" backcolor="#B38E5D" uuid="654083c2-f8f6-4bbd-80c4-f6043dd9ec36"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[(a)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="106" height="20" backcolor="#CCCCCC" uuid="c6a4882d-5294-4611-ba34-913ad792813f"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="9" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($F{retencionNacional})]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement mode="Opaque" x="0" y="20" width="106" height="15" backcolor="#CCCCCC" uuid="f96cb942-2746-48d1-a1aa-4303b8a463a2"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA["21069017"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="101" uuid="94ecc8ba-6fd5-49c9-a122-e93534567726">
+						<jr:columnHeader height="30" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="101" height="15" forecolor="#FFFFFF" backcolor="#005C4C" uuid="cb755ca0-0841-4e0d-8f90-6630fc7fdd73"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Costo administrativo]]></text>
+							</staticText>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="15" width="101" height="15" forecolor="#FFFFFF" backcolor="#B38E5D" uuid="fb91967a-3dbe-45bb-98ac-f1f741b28cd5"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[(b)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="101" height="20" backcolor="#CCCCCC" uuid="7d2edafd-137c-4b27-bbb0-6b65b6a8c03f"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="9" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($F{costoAdministrativo})]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement mode="Opaque" x="0" y="20" width="101" height="15" backcolor="#CCCCCC" uuid="ad45a7c0-18e5-4131-ae42-3cf9d6a74ee0"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA["41040417"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="75" uuid="07e0756f-2b02-468d-9ef1-7488f8f75038">
+						<jr:columnHeader height="30" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="75" height="15" forecolor="#FFFFFF" backcolor="#005C4C" uuid="7c420c6a-290a-4321-8883-822e5376dcac"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[IVA]]></text>
+							</staticText>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="15" width="75" height="15" forecolor="#FFFFFF" backcolor="#B38E5D" uuid="46fc88f5-c636-4584-95d6-b27362b82854"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[(c)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="75" height="20" backcolor="#CCCCCC" uuid="17d65ef5-cb78-4632-8505-ffabd6060e51"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="9" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($F{ivaCostoAdministrativo})]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement mode="Opaque" x="0" y="20" width="75" height="15" backcolor="#CCCCCC" uuid="06e70b9e-0e9b-4f9e-b243-2082cdca58c2"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA["21040129"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="45d5b85b-9b26-4dac-a4e2-f7138f3b2993">
+						<jr:columnHeader height="30" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="100" height="15" forecolor="#FFFFFF" backcolor="#005C4C" uuid="4d823482-13a0-49ff-a17a-a2cce493ea63"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Recuperación Fallecidos]]></text>
+							</staticText>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="15" width="100" height="15" forecolor="#FFFFFF" backcolor="#B38E5D" uuid="de13dbeb-3fd5-4862-9fb7-1d0f9a22a190"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[(d)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="100" height="20" backcolor="#CCCCCC" uuid="5ad4e809-2105-47a4-9e7a-418ce9540047"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="9" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($F{importeFallecidos})]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement mode="Opaque" x="0" y="20" width="100" height="15" backcolor="#CCCCCC" uuid="00edf08e-0876-46ce-9037-ff7d3b950376"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA["21100101"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="93" uuid="40378a75-6876-48f8-809f-89216fff0962">
+						<jr:columnHeader height="30" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="93" height="15" forecolor="#FFFFFF" backcolor="#005C4C" uuid="d2ba9888-7cfb-4852-adf0-4cf095a663d2"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Neto a Pagar]]></text>
+							</staticText>
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="15" width="93" height="15" forecolor="#FFFFFF" backcolor="#B38E5D" uuid="249f1d0c-027a-4395-bf0d-cf7d2c0cc6d3"/>
+								<box>
+									<pen lineWidth="0.75" lineColor="#000000"/>
+									<topPen lineWidth="0.75" lineColor="#000000"/>
+									<leftPen lineWidth="0.75" lineColor="#000000"/>
+									<bottomPen lineWidth="0.75" lineColor="#000000"/>
+									<rightPen lineWidth="0.75" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="true"/>
+								</textElement>
+								<text><![CDATA[(e) = a-b-c-d]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="35" rowSpan="1">
+							<box>
+								<pen lineWidth="0.75"/>
+								<topPen lineWidth="0.75"/>
+								<leftPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
+								<rightPen lineWidth="0.75"/>
+							</box>
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="93" height="20" backcolor="#CCCCCC" uuid="ab4d94eb-b045-4967-8d2e-d5eaa4ca565d"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="9" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.ENGLISH)).format($F{netoPagar})]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement mode="Opaque" x="0" y="20" width="93" height="15" backcolor="#CCCCCC" uuid="e209c945-ad59-4835-a94a-0f62bc7da369"/>
+								<box>
+									<pen lineWidth="0.75"/>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Montserrat" size="6" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA["-"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="73">
+			<textField>
+				<reportElement x="11" y="50" width="544" height="20" forecolor="#000000" uuid="dbbf6fd0-10bd-4bd4-a20c-5b1bf7fc4966"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="7" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+" de "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement x="0" y="0" width="555" height="50" uuid="afe4644a-a3b7-4fcd-92a2-19284646af96"/>
+				<imageExpression><![CDATA[$P{IMAGEN}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

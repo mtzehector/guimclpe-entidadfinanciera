@@ -1,0 +1,42 @@
+{
+    "content": [
+        {
+            "id": 31,
+            "entidadFinancieraResponse": {
+                "id": 23,
+                "nombreComercial": "Fifaco",
+                "razonSocial": "FIFACO, S.A. DE C.V. SOFOM, E.N.R.",
+                "numTelefono": "01-800-134-3226",
+                "paginaWeb": "www.fifaco.com.mx"
+            },
+            "monto": 11000.0,
+            "cat": 49.84,
+            "descuentoMensual": 1133.47,
+            "plazo": {
+                "id": 3,
+                "numPlazo": 12,
+                "descripcion": "12 meses"
+            },
+            "importeTotal": 13601.64,
+            "tasaAnual": 45.0,
+            "beneficios": [
+                {
+                    "id": 61,
+                    "desBeneficio": "No recibes penalización por pagos anticipados"
+                },
+                {
+                    "id": 62,
+                    "desBeneficio": "Tasa de interés y pagos fijos (sin IVA) durante la vigencia del crédito"
+                }
+            ]
+        }
+    ],
+    "last": true,
+    "totalElements": 1,
+    "totalPages": 1,
+    "size": 10,
+    "number": 0,
+    "sort": null,
+    "first": true,
+    "numberOfElements": 1
+}
